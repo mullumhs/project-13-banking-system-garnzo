@@ -36,16 +36,11 @@ class Bank:
             if name != name.get_acc_info(account):
                 raise ValueError("Account doesn't Exist")
         self.depo(depo_amm)
-                
-    def withdraw(self, bal,  withdraw_amm): 
-        for account in self._accounts:
-            if withdraw_amm >= bal:
-                raise ValueError("Withdraw amount cant be larger than your current balance")
-            self._bal -= self.withdraw_amm
 
-    def withdraw(self, bal, withdraw_amm):
+    def withdraw(self, name, withdraw_amm):
         for account in self._accounts:
-            self.withdraw(withdraw_amm)
+            if name == account._name:
+                account.withdraw(withdraw_amm)
 
     create_acc("Jeff", 12.00)
     withdraw(12)
