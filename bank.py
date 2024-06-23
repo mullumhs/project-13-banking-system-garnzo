@@ -8,7 +8,7 @@ from account import Account
 
 class Bank:
 
-    def __init__(self, name, bal, create_acc):
+    def __init__(self, name, bal):
         self._accounts = []
     
     def create_acc(self, name, bal):
@@ -31,11 +31,21 @@ class Bank:
             if name != name.get_acc_info():
                 raise ValueError("Transaction Canceled, Account Doesn't Exist")
          
-    def depo(self, name, bal):
+    def depo(self, name, bal, depo_amm):
         for account in self._accounts:
             if name != name.get_acc_info(account):
                 raise ValueError("Account doesn't Exist")
-        self.depo()
+        self.depo(depo_amm)
                 
-    def withdraw():
-        pass
+    def withdraw(self, bal,  withdraw_amm): 
+        for account in self._accounts:
+            if withdraw_amm >= bal:
+                raise ValueError("Withdraw amount cant be larger than your current balance")
+            self._bal -= self.withdraw_amm
+
+    def withdraw(self, bal, withdraw_amm):
+        for account in self._accounts:
+            self.withdraw(withdraw_amm)
+
+    create_acc("Jeff", 12.00)
+    withdraw(12)
